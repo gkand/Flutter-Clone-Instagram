@@ -29,7 +29,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     _emailController.dispose();
     _passwordController.dispose();
@@ -46,7 +45,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   void navigateToLoginScreen() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => LoginScreen()));
+        .push(MaterialPageRoute(builder: (context) => const LoginScreen()));
   }
 
   void signUpUser() async {
