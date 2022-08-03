@@ -194,11 +194,12 @@ class _PostCardState extends State<PostCard> {
               ),
               Expanded(
                 child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.bookmark_border),
-                    )),
+                  alignment: Alignment.bottomRight,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(Icons.bookmark_border),
+                  ),
+                ),
               ),
             ],
           ),

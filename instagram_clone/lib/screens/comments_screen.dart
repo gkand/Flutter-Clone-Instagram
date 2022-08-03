@@ -55,46 +55,47 @@ class _CommentsScreenState extends State<CommentsScreen> {
         },
       ),
       bottomNavigationBar: SafeArea(
-          child: Container(
-        height: kToolbarHeight,
-        margin:
-            EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-        padding: const EdgeInsets.only(left: 15, right: 8),
-        child: Row(
-          children: [
-            CircleAvatar(
-              backgroundImage: NetworkImage(user.photoUrl),
-              radius: 18,
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 8),
-                child: TextField(
-                  controller: _commentController,
-                  decoration: InputDecoration(
-                    hintText: 'Comment as ${user.username}',
-                    border: InputBorder.none,
+        child: Container(
+          height: kToolbarHeight,
+          margin:
+              EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+          padding: const EdgeInsets.only(left: 15, right: 8),
+          child: Row(
+            children: [
+              CircleAvatar(
+                backgroundImage: NetworkImage(user.photoUrl),
+                radius: 18,
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 8),
+                  child: TextField(
+                    controller: _commentController,
+                    decoration: InputDecoration(
+                      hintText: 'Comment as ${user.username}',
+                      border: InputBorder.none,
+                    ),
                   ),
                 ),
               ),
-            ),
-            IconButton(
-              icon: const Icon(Icons.send),
-              onPressed: () async {
-                await FirestoreMethods().postComment(
-                    widget.snap['postId'],
-                    _commentController.text,
-                    user.uid,
-                    user.username,
-                    user.photoUrl);
-                setState(() {
-                  _commentController.text = "";
-                });
-              },
-            ),
-          ],
+              IconButton(
+                icon: const Icon(Icons.send),
+                onPressed: () async {
+                  await FirestoreMethods().postComment(
+                      widget.snap['postId'],
+                      _commentController.text,
+                      user.uid,
+                      user.username,
+                      user.photoUrl);
+                  setState(() {
+                    _commentController.text = "";
+                  });
+                },
+              ),
+            ],
+          ),
         ),
-      )),
+      ),
     );
   }
 }
